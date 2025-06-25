@@ -56,6 +56,18 @@ for i in range(detected_faces.shape[2]):
         cv2.rectangle(img_cp,(x1,y1),(x2,y2),(0,0,255),int(round(img_height/150)),8)
         face_bounds.append([x1,y1,x2,y2])
 
+for face_bound in face_bounds:
+    try:
+        face=img_cp[max(0,face_bound[1]-15): min(face_bound[3]+15,img_cp.shape[0]-1),
+                    max(0,face_bound[0]-15): min(face_bound[2]+15,img_cp.shape[1]-1)]
+    
+        blob= cv2.dnn.blobFromImage(face, 1.0, (277,277),[104,117,123],True)
+        gender.setInput(blob)
+        gender_prediction=gender.forward()
+        print(gender_prediction)
+    except Exception as e:
+        print(e)
+
 # plt.imshow(img_cp)
 # plt.axis('off')  # Hide axis
 # plt.show()
