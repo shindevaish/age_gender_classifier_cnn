@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 # cv2.destroyAllWindows()
 
 
-image = cv2.imread("0Q6A9766.JPG")
-image = cv2.resize(image,(600,600))
+image = cv2.imread("0Q6A9930.JPG")
+image = cv2.resize(image,(720,640))
 
 face_pbtxt="models/opencv_face_detector.pbtxt"
 face_pb="models/opencv_face_detector_uint8.pb"
@@ -37,12 +37,16 @@ img_cp=image.copy()
 
 img_height=img_cp.shape[0]
 img_width=img_cp.shape[1]
-blob = cv2.dnn.blobFromImage(img_cp,1.0,(200,200),[104,117,123],True,False)
+blob = cv2.dnn.blobFromImage(img_cp,1.0,(300,300),[104,117,123],True,False)
+
 
 face.setInput(blob)
 detected_faces=face.forward()
 # print(f"Confidence: {detected_faces[0,0]}")
 face_bounds=[]
+
+print("Blob shape:", blob.shape)
+print("Detected faces shape:", detected_faces.shape)
 
 for i in range(detected_faces.shape[2]):
     confidence=detected_faces[0,0,i,2]
@@ -53,7 +57,8 @@ for i in range(detected_faces.shape[2]):
         x2=int(detected_faces[0,0,i,5]*img_width)
         y2=int(detected_faces[0,0,i,6]*img_height)
         # print([x1,y1,x2,y2])
-        cv2.rectangle(img_cp,(x1,y1),(x2,y2),(0,0,255),int(round(img_height/150)),8)
+        cv2.rectangle(img_cp,(x1,y1),(x2,y2),(0,0,255),2)
+        print(f"Confidence: {confidence:.2f} | Face at: ({x1}, {y1}) to ({x2}, {y2})")
         face_bounds.append([x1,y1,x2,y2])
 
 for face_bound in face_bounds:
@@ -61,10 +66,16 @@ for face_bound in face_bounds:
         face=img_cp[max(0,face_bound[1]-15): min(face_bound[3]+15,img_cp.shape[0]-1),
                     max(0,face_bound[0]-15): min(face_bound[2]+15,img_cp.shape[1]-1)]
     
-        blob= cv2.dnn.blobFromImage(face, 1.0, (277,277),[104,117,123],True)
+        blob= cv2.dnn.blobFromImage(face, 1.0, (227,227),[104,117,123],True)
         gender.setInput(blob)
         gender_prediction=gender.forward()
-        print(gender_prediction)
+        gender= gender_classification[gender_prediction[0].argmax()]
+        print("Gender :",gender)
+
+        age.setInput(blob)
+        age_prediction=age.forward()
+        age=age_classification[age_prediction[0].argmax()]
+        print("AGE :",age)
     except Exception as e:
         print(e)
 
