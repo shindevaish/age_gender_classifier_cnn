@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 # cv2.destroyAllWindows()
 
 
-image = cv2.imread("0Q6A9930.JPG")
+image = cv2.imread("0Q6A9766.JPG")
 image = cv2.resize(image,(720,640))
 
 face_pbtxt="models/opencv_face_detector.pbtxt"
@@ -69,13 +69,13 @@ for face_bound in face_bounds:
         blob= cv2.dnn.blobFromImage(face, 1.0, (227,227),[104,117,123],True)
         gender.setInput(blob)
         gender_prediction=gender.forward()
-        gender= gender_classification[gender_prediction[0].argmax()]
-        print("Gender :",gender)
+        _gender= gender_classification[gender_prediction[0].argmax()]
+        print("Gender :",_gender)
 
         age.setInput(blob)
         age_prediction=age.forward()
-        age=age_classification[age_prediction[0].argmax()]
-        print("AGE :",age)
+        _age=age_classification[age_prediction[0].argmax()]
+        print("AGE :",_age)
     except Exception as e:
         print(e)
 
