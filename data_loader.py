@@ -1,7 +1,8 @@
 import os
 import torch
+import torchvision
 from torch.utils.data import Dataset, DataLoader
-from torchvison import transforms
+from torchvision import transforms
 from PIL import Image
 
 class FaceDataset(Dataset):
@@ -22,8 +23,8 @@ class FaceDataset(Dataset):
             age = int(parts[0])
             gender = int(parts[1])
         except (IndexError, ValueError):
-            print("ERROR")
-            return 
+            print(f"ERROR parsing filename: {img_name}")
+            return None, None, None
         
         image = Image.open(img_path).convert('RGB')
 
@@ -33,10 +34,11 @@ class FaceDataset(Dataset):
         return image, torch.tensor([age, gender], dtype = torch.float32)
     
 transform = transforms.Compose([
-    transform.Resize((224,224)),
-    transform.ToTensor(),
-    transform.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229,0.224, 0.225]),
+    transforms.Resize((224,224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229,0.224, 0.225]),
 ])
 
-dataset =  FaceDataset(root_dir = 'dataset', transform = transform)
-dataloader = DataLoader(dataset, batch_size = 32, shuffle = True, num_worker = 4)
+dir = 'dataset'
+dataset_ =  FaceDataset(root_dir = dir, transform = transform)
+dataloader = DataLoader(dataset_, batch_size = 32, shuffle = True, num_workers = 4)
