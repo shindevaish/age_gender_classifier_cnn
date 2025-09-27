@@ -39,6 +39,6 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229,0.224, 0.225]),
 ])
 
-dir = 'dataset'
+dir = '/Users/vaishnavishinde/Desktop/age_detector/dataset'
 dataset_ =  FaceDataset(root_dir = dir, transform = transform)
 dataloader = DataLoader(dataset_, batch_size = 32, shuffle = True, num_workers = 4)
