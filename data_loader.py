@@ -33,11 +33,12 @@ class FaceDataset(Dataset):
         
         return image, torch.tensor([age, gender], dtype = torch.float32)
     
-transform = transforms.Compose([
-    transforms.Resize((224,224)),
-    transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229,0.224, 0.225]),
-])
+def get_transforms():
+    return transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
 
 dir = '/Users/vaishnavishinde/Desktop/age_detector/dataset'
 dataset_ =  FaceDataset(root_dir = dir, transform = transform)
