@@ -5,8 +5,9 @@ Age_Detector
 The UTKFace dataset contains over 20,000 face images. The filename format is [age]_[gender]_[race]_[date&time].jpg. You will need to parse this filename to extract the labels.
 
 Age: The first part of the filename, an integer from 0 to 116.
-(Note: As per observation we are having images till age 110 out of which 94, 97, 98 and 102-109 are not given)
 Gender: The second part, where 0 is male and 1 is female.
+
+**Note**: As per observation we are having images till age 110 out of which 94, 97, 98 and 102-109 are not given
 
 #### 1.2. Data Loading Class
 A custom data loading class (like a torch.utils.data.Dataset in PyTorch or a custom data generator in TensorFlow/Keras) is essential. It should:
