@@ -11,3 +11,9 @@
 **Observations:**
 - Removing age >90 samples improved model stability.
 - Age normalization ( >90 → 91 ) caused accuracy drop.
+
+## [2026-01-03]
+### Evaluation Metrics Update
+
+- Switched age evaluation from accuracy to MAE and MSE.
+- Accuracy was removed as it is not suitable for age regression tasks.
