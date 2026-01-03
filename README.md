@@ -187,4 +187,3 @@ Mean Absolute Error (MAE): The average absolute difference between the predicted
 Mean Squared Error (MSE): The average of the squared differences. This metric penalizes larger errors more heavily than MAE.
 
 R-squared (R 2): A statistical measure of how close the data are to the fitted regression line. A value of 1.0 means a perfect fit.
-
