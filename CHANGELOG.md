@@ -17,3 +17,11 @@
 
 - Switched age evaluation from accuracy to MAE and MSE.
 - Accuracy was removed as it is not suitable for age regression tasks.
+
+## [2026-01-17]
+### Data Augmentation Strategy
+
+- Introduced image data augmentation during training.
+- Augmentation applied to increase dataset diversity and reduce overfitting.
+- Validation and test datasets kept unchanged.
+
