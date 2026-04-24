@@ -40,6 +40,6 @@ def get_transforms():
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
 
-dir = 'augmented_dataset_v2'
+dir = 'augmented_dataset'
 dataset_ =  FaceDataset(root_dir = dir, transform = get_transforms())
 dataloader = DataLoader(dataset_, batch_size = 32, shuffle = True, num_workers = 4)
