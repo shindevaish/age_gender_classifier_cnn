@@ -2,6 +2,7 @@ __pycache__
 .vscode
 dataset
 part1
+augmented_dataset
 test.ipynb
 models/model_stratified_splitting.pth
 models/model_removing_age_gt90.pth
