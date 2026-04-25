@@ -2,10 +2,5 @@ __pycache__
 .vscode
 dataset
 part1
+models
 augmented_dataset
-test.ipynb
-models/model_stratified_splitting.pth
-models/model_removing_age_gt90.pth
-models/learning_curve_model.pth
-models/age_gender_model.pth
-models/age_gender_model_1.pth
