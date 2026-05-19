@@ -80,7 +80,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-=======
 # video=cv2.VideoCapture(0)
 # while True:
 #     ret,frame=video.read()
