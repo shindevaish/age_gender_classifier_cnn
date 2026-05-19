@@ -2,6 +2,8 @@ __pycache__
 .vscode
 dataset
 part1
+models
+augmented_dataset
 test.ipynb
 models/learning_curve_model.pth
 models/age_gender_model.pth
