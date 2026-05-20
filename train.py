@@ -19,7 +19,7 @@ def main():
     full_dataset = FaceDataset(root_dir='/Users/vaishnavishinde/Desktop/age_detector/dataset', transform=transform)
 
     filtered_indices = [i for i, (data, label) in enumerate(full_dataset) if data is not None]
-    dataset = torch.utils.data.Subset(full_dataset, fitered_indices)
+    dataset = torch.utils.data.Subset(full_dataset, filtered_indices)
 
     train_size = int(0.8 * len(dataset))
     val_size = int(0.1 * len(dataset))
