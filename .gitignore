@@ -6,6 +6,7 @@ test.ipynb
 models*
 models/learning_curve_model.pth
 models/age_gender_model.pth
+models/model_stratified_splitting.pth
 test.ipynb
 augmented_dataset
 evaluation.ipynb
