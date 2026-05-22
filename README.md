@@ -103,8 +103,6 @@ streamlit run app.py
 
 You can access the deployed application here:
 
-```bash
 [Click here to view the web app](https://facereadai.streamlit.app/)
-```
 
 ---
