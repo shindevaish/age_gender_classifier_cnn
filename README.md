@@ -63,6 +63,14 @@ The project uses:
 
 ---
 
+## Deployed Version
+
+You can access the deployed application here:
+
+[Click here to view the web app](https://facereadai.streamlit.app/)
+
+---
+
 ## Tech Stack
 - Python
 - PyTorch
@@ -96,13 +104,5 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-
----
-
-## Deployed Version
-
-You can access the deployed application here:
-
-[Click here to view the web app](https://facereadai.streamlit.app/)
 
 ---
