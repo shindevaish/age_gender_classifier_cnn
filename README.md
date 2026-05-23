@@ -52,7 +52,7 @@ The project uses:
 ### Gender Classification Accuracy
 - **85.87%**
 
-### Age Prediction Accuracy
+### Age Prediction Accuracy (±3)
 - **79.36%**
 
 ### Additional Metrics Used
