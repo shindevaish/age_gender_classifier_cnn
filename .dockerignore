@@ -1,0 +1,10 @@
+__pycache__
+.DS_Store
+*.pyc
+*.ipynb
+dataset
+augmented_dataset
+.git
+.gitignore
+.gitattributes
+README.md
