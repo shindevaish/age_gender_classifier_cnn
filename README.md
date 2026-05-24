@@ -106,3 +106,33 @@ streamlit run app.py
 ```
 
 ---
+
+---
+
+## Docker Deployment
+
+This project is also containerized using **Docker** so it can run consistently across different environments.
+
+### Build the Docker Image
+
+```bash
+docker build -t dedox23/age_gender_prediction .
+```
+
+### Run the Container
+
+```bash
+docker run -p 8501:8501 dedox23/age_gender_prediction
+```
+
+Then open the application in your browser:
+
+```bash
+http://localhost:8501
+```
+
+### Docker Notes
+
+- The Streamlit app is configured to run on `0.0.0.0` inside the container.
+- Port `8501` is exposed and mapped correctly so the web app is accessible from the host machine.
+- Large folders such as `dataset/` and `augmented_dataset/` are excluded using `.dockerignore` to keep the build lightweight and avoid unnecessary context transfer.
